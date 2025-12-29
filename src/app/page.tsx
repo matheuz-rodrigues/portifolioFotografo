@@ -1,8 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PortfolioItem from "@/components/PortfolioItem";
+import AlbumCard from "@/components/AlbumCard";
+import { getAlbums } from "@/lib/albums";
 
 export default function Home() {
+  const albums = getAlbums();
+
   return (
     <div className="min-h-screen flex flex-col bg-black">
       <Header />
@@ -58,9 +61,21 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in delay-200">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <PortfolioItem key={item} id={item} />
-              ))}
+              {albums.length > 0 ? (
+                albums.map((album) => (
+                  <AlbumCard
+                    key={album.slug}
+                    title={album.title}
+                    slug={album.slug}
+                    coverImage={album.coverImage}
+                    imageCount={album.imageCount}
+                  />
+                ))
+              ) : (
+                <div className="col-span-full text-center text-foreground/50 py-12">
+                  <p className="text-xl">Nenhum álbum encontrado. Crie pastas em public/albums para começar.</p>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -148,7 +163,7 @@ export default function Home() {
                   Seguir no Instagram
                 </a>
 
-                
+
               </div>
             </div>
           </div>

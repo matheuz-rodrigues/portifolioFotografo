@@ -7,9 +7,7 @@ export default function Footer() {
                     <p className="text-foreground/60 text-sm">
                         &copy; {new Date().getFullYear()} - WG Filmes & Fotografia. Todos os direitos reservados
                     </p>
-                    <div className="flex justify-center gap-6 text-sm">
-                        <a href="https://www.instagram.com/wgfilmesefotografia/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors font-medium">Instagram</a>
-                    </div>
+                   
                 </div>
             </div>
         </footer>
