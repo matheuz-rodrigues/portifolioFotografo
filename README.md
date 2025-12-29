@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site de Fotógrafo - Next.js + Tailwind CSS 3
 
-## Getting Started
+Este é um projeto criado com [Next.js](https://nextjs.org) e configurado para exportação estática com Tailwind CSS 3.
 
-First, run the development server:
+## 📁 Estrutura do Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+fotografo/
+├── src/
+│   ├── app/              # App Router do Next.js
+│   │   ├── layout.tsx    # Layout raiz
+│   │   ├── page.tsx      # Página inicial
+│   │   └── globals.css   # Estilos globais com Tailwind
+│   ├── components/       # Componentes reutilizáveis
+│   └── styles/          # Estilos adicionais
+├── public/              # Arquivos estáticos (imagens, etc)
+└── out/                 # Pasta gerada após o build (export estático)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Como Usar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Desenvolvimento
+```bash
+npm run dev
+```
+Abre o servidor de desenvolvimento em [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build Estático
+```bash
+npm run export
+```
+Gera os arquivos estáticos na pasta `out/` que podem ser hospedados em qualquer servidor web.
 
-## Learn More
+### Visualizar Build Local
+```bash
+npx serve out
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Tecnologias
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js 16.1** - Framework React com App Router
+- **React 19** - Biblioteca UI
+- **Tailwind CSS 4** - Framework CSS utilitário
+- **TypeScript** - Tipagem estática
+- **Export Estático** - Site totalmente estático (sem servidor Node.js necessário)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Próximos Passos
 
-## Deploy on Vercel
+1. Personalize o `src/app/layout.tsx` com seus metadados
+2. Crie componentes em `src/components/`
+3. Adicione suas imagens em `public/`
+4. Edite `src/app/page.tsx` para criar sua página inicial
+5. Execute `npm run export` para gerar o site estático
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Hospedagem
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O site estático gerado pode ser hospedado em:
+- GitHub Pages
+- Netlify
+- Vercel
+- Qualquer servidor web estático
