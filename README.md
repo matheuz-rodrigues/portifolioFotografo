@@ -1,61 +1,73 @@
-# Site de Fotógrafo - Next.js + Tailwind CSS 3
+# Portfólio Premium para Fotógrafos 📸
 
-Este é um projeto criado com [Next.js](https://nextjs.org) e configurado para exportação estática com Tailwind CSS 3.
+> "Eternizando momentos com tecnologia de ponta."
 
-## 📁 Estrutura do Projeto
+Bem-vindo ao repositório deste **Portfólio para Fotógrafos**, um projeto desenvolvido para unir design sofisticado, performance extrema e facilidade de gestão de conteúdo. Este site não é apenas uma vitrine de fotos, mas uma experiência imersiva construída com as tecnologias web mais modernas de 2025.
 
-```
-fotografo/
-├── src/
-│   ├── app/              # App Router do Next.js
-│   │   ├── layout.tsx    # Layout raiz
-│   │   ├── page.tsx      # Página inicial
-│   │   └── globals.css   # Estilos globais com Tailwind
-│   ├── components/       # Componentes reutilizáveis
-│   └── styles/          # Estilos adicionais
-├── public/              # Arquivos estáticos (imagens, etc)
-└── out/                 # Pasta gerada após o build (export estático)
-```
+![Project Banner](/public/image.png)    
 
-## 🚀 Como Usar
+## ✨ Destaques do Projeto
 
-### Desenvolvimento
+### 🎨 Design & UX Premium
+- **Estética Cinematográfica**: Baseado em uma paleta Dark Mode com gradientes sutis (`bg-linear-to-br`) e efeitos de vidro (glassmorphism), focado em valorizar cada imagem.
+- **Animações Fluidas**: Cada elemento entra em cena com uma coreografia visual (Staggered Animations) powered by [Framer Motion](https://www.framer.com/motion/). Títulos, textos e cards possuem movimentos naturais de física.
+- **Micro-interações**: Botões e Cards reagem ao toque e hover com feedbacks táteis e visuais elegantes.
+- **Scroll Reveal**: As seções se revelam suavemente conforme o usuário navega, criando uma narrativa contínua.
+
+### ⚡ Engenharia & Performance
+- **Next.js 16 (App Router)**: Framework full-stack utilizando Server Components e as novas features do React 19 para performance máxima e SEO otimizado.
+- **Tailwind CSS v4**: A mais nova versão do framework, utilizando o motor `oxide` para builds instantâneos e nova sintaxe de gradientes e aninhamento CSS nativo.
+- **File-System Routing**: Sistema inteligente de álbuns onde a estrutura de pastas dita o conteúdo. Sem banco de dados complexo, apenas arraste suas pastas de fotos para `public/albums` e o site se atualiza magicamente.
+- **Static Export**: Configurado para rodar 100% estático (`output: 'export'`), permitindo hospedagem gratuita e ultrarrápida.
+- **TypeScript**: Código robusto, tipado e seguro.
+
+## 🛠️ Arquitetura Inteligente
+
+O projeto utiliza uma abordagem híbrida inteligente para tirar o melhor dos dois mundos (Server e Client):
+
+1.  **Lib de Álbuns (Node.js/Server)**:
+    -   Lê o sistema de arquivos local (`fs`).
+    -   Gera rotas dinâmicas automaticamente (`generateStaticParams`).
+    -   Processa metadados dos álbuns.
+
+2.  **Componentes Interativos (Client Components)**:
+    -   Isolados com a diretiva `'use client'` do Next.js.
+    -   Responsáveis apenas pela interatividade e animações (Framer Motion).
+    -   Isso evita conflitos de SSR e garante hidratação perfeita.
+
+## 🚀 Como Executar
+
+Clone o projeto e sinta a potência:
+
 ```bash
+# Instalar dependências
+npm install
+
+# Rodar em modo de desenvolvimento (Hot Reloading)
 npm run dev
-```
-Abre o servidor de desenvolvimento em [http://localhost:3000](http://localhost:3000)
 
-### Build Estático
-```bash
-npm run export
-```
-Gera os arquivos estáticos na pasta `out/` que podem ser hospedados em qualquer servidor web.
-
-### Visualizar Build Local
-```bash
-npx serve out
+# Gerar versão de produção estática (super otimizada)
+npm run build
 ```
 
-## 🎨 Tecnologias
+Acesse [http://localhost:3000](http://localhost:3000) e veja a mágica acontecer.
 
-- **Next.js 16.1** - Framework React com App Router
-- **React 19** - Biblioteca UI
-- **Tailwind CSS 4** - Framework CSS utilitário
-- **TypeScript** - Tipagem estática
-- **Export Estático** - Site totalmente estático (sem servidor Node.js necessário)
+## 📂 Estrutura de Pastas (CMS via Arquivos)
 
-## 📝 Próximos Passos
+Gerenciar o conteúdo é tão simples quanto organizar arquivos no seu computador:
 
-1. Personalize o `src/app/layout.tsx` com seus metadados
-2. Crie componentes em `src/components/`
-3. Adicione suas imagens em `public/`
-4. Edite `src/app/page.tsx` para criar sua página inicial
-5. Execute `npm run export` para gerar o site estático
+```text
+public/
+  albums/
+    ├── casamento-praia/    -> Cria automaticamente a página /album/casamento-praia
+    │   ├── cover.jpg       -> Capa do álbum
+    │   ├── foto1.jpg
+    │   └── foto2.jpg
+    ├── ensaio-urbano/      -> Outro álbum...
+```
 
-## 🌐 Hospedagem
+---
 
-O site estático gerado pode ser hospedado em:
-- GitHub Pages
-- Netlify
-- Vercel
-- Qualquer servidor web estático
+<div align="center">
+  Desenvolvido com ❤️ e ☕ por <a href="https://matheuz-rodrigues.github.io/" target="_blank">Matheuz Rodrigues</a>
+</div>

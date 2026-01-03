@@ -24,7 +24,7 @@ export default function AlbumCard({ title, coverImage, slug, imageCount }: Album
                 </div>
 
                 {/* Overlay com Gradiente */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
                 {/* Informações Hover */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">

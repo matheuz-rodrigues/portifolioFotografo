@@ -4,6 +4,7 @@ import { getAlbums } from "@/lib/albums";
 import MotionWrapper from "@/components/MotionWrapper";
 import HeroSection from "@/components/HeroSection";
 import PortfolioGrid from "@/components/PortfolioGrid";
+import Image from "next/image";
 
 export default function Home() {
   const albums = getAlbums();
@@ -19,7 +20,7 @@ export default function Home() {
 
         {/* Sobre Section Premium */}
         <section id="sobre" className="py-20 md:py-32 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-950/50 to-black"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-primary-950/50 to-black"></div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <MotionWrapper>
@@ -32,14 +33,16 @@ export default function Home() {
               {/* Foto do Fotógrafo */}
               <MotionWrapper animation="scale-in" delay={0.2}>
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/30 to-primary-900/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-br from-primary-500/30 to-primary-900/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                   <div className="relative overflow-hidden rounded-2xl border-2 border-primary-900/50 hover:border-primary-500/50 transition-all duration-500">
-                    <img
+                    <Image
                       src="/well.jpeg"
                       alt="Fotógrafo Profissional"
+                      width={600}
+                      height={800}
                       className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </div>
               </MotionWrapper>
@@ -60,7 +63,7 @@ export default function Home() {
                 </MotionWrapper>
                 <MotionWrapper delay={0.5}>
                   <p className="text-primary-300 font-semibold text-xl italic">
-                    "A fotografia é a poesia da imobilidade: é através dela que as imagens calam e falam."
+                    &quot;A fotografia é a poesia da imobilidade: é através dela que as imagens calam e falam.&quot;
                   </p>
                 </MotionWrapper>
               </div>
@@ -80,7 +83,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-primary-900/20 to-black/40 backdrop-blur-xl rounded-2xl p-8 sm:p-12 border border-primary-800/30 text-center hover-lift">
+            <div className="bg-linear-to-br from-primary-900/20 to-black/40 backdrop-blur-xl rounded-2xl p-8 sm:p-12 border border-primary-800/30 text-center hover-lift">
               <p className="text-lg mb-8 text-foreground/80">
                 Cada história merece ser contada com excelência. Estou pronto para registrar a sua.
               </p>

@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 import Link from "next/link";
 import { getAlbumImages, getAlbums } from "@/lib/albums";
 import AlbumGrid from "@/components/AlbumGrid";

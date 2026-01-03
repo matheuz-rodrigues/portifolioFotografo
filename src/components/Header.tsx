@@ -9,12 +9,18 @@ export default function Header() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true);
+        const timer = setTimeout(() => {
+            setMounted(true);
+        }, 0);
+
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(timer);
+        };
     }, []);
 
     // Bloquear scroll quando menu estiver aberto
@@ -61,7 +67,7 @@ export default function Header() {
                                         <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-300">
                                             {item}
                                         </span>
-                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-primary-300 group-hover:w-full transition-all duration-500"></span>
+                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-primary-500 to-primary-300 group-hover:w-full transition-all duration-500"></span>
                                     </a>
                                 </li>
                             );
