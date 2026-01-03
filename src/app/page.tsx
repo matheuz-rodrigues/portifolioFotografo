@@ -1,7 +1,9 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AlbumCard from "@/components/AlbumCard";
 import { getAlbums } from "@/lib/albums";
+import MotionWrapper from "@/components/MotionWrapper";
+import HeroSection from "@/components/HeroSection";
+import PortfolioGrid from "@/components/PortfolioGrid";
 
 export default function Home() {
   const albums = getAlbums();
@@ -11,119 +13,64 @@ export default function Home() {
       <Header />
 
       <main className="flex-1 pt-20">
-        {/* Hero Section Premium */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background com gradiente animado */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-950 via-black to-black"></div>
+        <HeroSection />
 
-          {/* Efeito de luz */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary-600/20 rounded-full blur-[120px] animate-float"></div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
-              <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold leading-tight">
-                <span className="block gradient-text mb-2 sm:mb-4">Eternizando</span>
-                <span className="block text-foreground">Sua História</span>
-              </h1>
-
-              <p className="text-base sm:text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto animate-fade-in-up delay-200 px-4">
-                Fotografia autoral que revela a essência e a emoção de cada momento especial
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-4 sm:pt-8 animate-fade-in-up delay-300 px-4">
-                <a
-                  href="#portfolio"
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-linear-to-r from-primary-600 to-primary-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all duration-300 hover:-translate-y-1 text-sm sm:text-base"
-                >
-                  Ver Portfolio
-                </a>
-                <a
-                  href="#contato"
-                  className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-primary-500 rounded-lg font-semibold hover:bg-primary-500/10 transition-all duration-300 text-sm sm:text-base"
-                >
-                  Solicitar Orçamento
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Portfolio Grid Premium */}
-        <section id="portfolio" className="py-32 bg-gradient-to-b from-black via-primary-950/30 to-black">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-5xl font-bold mb-4">
-                <span className="gradient-text">Portfolio</span>
-              </h2>
-              <p className="text-xl text-foreground/70">
-                Olhares que transformam instantes em memórias
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in delay-200">
-              {albums.length > 0 ? (
-                albums.map((album) => (
-                  <AlbumCard
-                    key={album.slug}
-                    title={album.title}
-                    slug={album.slug}
-                    coverImage={album.coverImage}
-                    imageCount={album.imageCount}
-                  />
-                ))
-              ) : (
-                <div className="col-span-full text-center text-foreground/50 py-12">
-                  <p className="text-xl">Nenhum álbum encontrado. Crie pastas em public/albums para começar.</p>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
+        <PortfolioGrid albums={albums} />
 
         {/* Sobre Section Premium */}
-        <section id="sobre" className="py-32 relative overflow-hidden">
+        <section id="sobre" className="py-20 md:py-32 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary-950/50 to-black"></div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-5xl font-bold mb-16 text-center">
-              <span className="gradient-text">Sobre Mim</span>
-            </h2>
+            <MotionWrapper>
+              <h2 className="text-5xl font-bold mb-16 text-center">
+                <span className="gradient-text">Sobre Mim</span>
+              </h2>
+            </MotionWrapper>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Foto do Fotógrafo */}
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/30 to-primary-900/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="relative overflow-hidden rounded-2xl border-2 border-primary-900/50 hover:border-primary-500/50 transition-all duration-500">
-                  <img
-                    src="/well.jpg"
-                    alt="Fotógrafo Profissional"
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <MotionWrapper animation="scale-in" delay={0.2}>
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/30 to-primary-900/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-primary-900/50 hover:border-primary-500/50 transition-all duration-500">
+                    <img
+                      src="/well.jpeg"
+                      alt="Fotógrafo Profissional"
+                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
                 </div>
-              </div>
+              </MotionWrapper>
 
               {/* Informações */}
               <div className="space-y-6 text-lg text-foreground/80 leading-relaxed">
-                <p className="animate-fade-in-up">
-                  Apaixonado pela arte de fotografar, dedico minha carreira a capturar a luz e a emoção presentes em cada cena.
-                  Mais do que imagens, busco registrar a verdade e a beleza dos momentos.
-                </p>
-                <p className="animate-fade-in-up delay-100">
-                  Com um olhar atento aos detalhes e uma abordagem artística, transformo casamentos, ensaios e eventos
-                  em narrativas visuais únicas que serão guardadas para sempre.
-                </p>
-                <p className="text-primary-300 font-semibold text-xl italic animate-fade-in-up delay-200">
-                  "A fotografia é a poesia da imobilidade: é através dela que as imagens calam e falam."
-                </p>
+                <MotionWrapper delay={0.3}>
+                  <p>
+                    Apaixonado pela arte de fotografar, dedico minha carreira a capturar a luz e a emoção presentes em cada cena.
+                    Mais do que imagens, busco registrar a verdade e a beleza dos momentos.
+                  </p>
+                </MotionWrapper>
+                <MotionWrapper delay={0.4}>
+                  <p>
+                    Com um olhar atento aos detalhes e uma abordagem artística, transformo casamentos, ensaios e eventos
+                    em narrativas visuais únicas que serão guardadas para sempre.
+                  </p>
+                </MotionWrapper>
+                <MotionWrapper delay={0.5}>
+                  <p className="text-primary-300 font-semibold text-xl italic">
+                    "A fotografia é a poesia da imobilidade: é através dela que as imagens calam e falam."
+                  </p>
+                </MotionWrapper>
               </div>
             </div>
           </div>
         </section>
 
         {/* Contato Section Premium */}
-        <section id="contato" className="py-32 bg-gradient-to-b from-black to-primary-950">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="contato" className="py-20 md:py-32 bg-linear-to-b from-black to-primary-950">
+          <MotionWrapper className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-5xl font-bold mb-4">
                 <span className="gradient-text">Vamos Conversar</span>
@@ -166,7 +113,7 @@ export default function Home() {
 
               </div>
             </div>
-          </div>
+          </MotionWrapper>
         </section>
       </main>
 

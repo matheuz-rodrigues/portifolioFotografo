@@ -34,12 +34,12 @@ export default function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-[10002] transition-all duration-500 ${scrolled
+            className={`fixed top-0 left-0 right-0 z-10002 transition-all duration-500 ${scrolled
                 ? 'bg-black/80 backdrop-blur-xl shadow-lg shadow-primary-900/20'
                 : 'bg-transparent'
                 }`}
         >
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-[10003]">
+            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10003">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <div className="flex items-center gap-3 animate-fade-in">
@@ -71,7 +71,7 @@ export default function Header() {
                     {/* Botão Hamburguer Mobile */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 relative z-[10002]"
+                        className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 relative z-10002"
                         aria-label="Menu"
                     >
                         <span className={`w-6 h-0.5 transition-all duration-300 ${menuOpen ? 'bg-white rotate-45 translate-y-2' : 'bg-foreground'}`}></span>
@@ -84,7 +84,7 @@ export default function Header() {
             {/* Menu Mobile Portal - Renderizado direto no Body */}
             {mounted && createPortal(
                 <div
-                    className={`md:hidden fixed inset-0 bg-black/95 backdrop-blur-xl z-[10001] transition-all duration-500 flex flex-col items-center justify-center ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                    className={`md:hidden fixed inset-0 bg-linear-to-b from-primary-950 via-black to-black backdrop-blur-xl z-10001 transition-all duration-500 flex flex-col items-center justify-center ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                     style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh' }}
                 >
                     <ul className="flex flex-col items-center gap-8">

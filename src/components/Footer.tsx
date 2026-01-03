@@ -8,7 +8,7 @@ export default function Footer() {
                         &copy; {new Date().getFullYear()} - WG Filmes & Fotografia. Todos os direitos reservados
                     </p>
                     <p className="text-foreground/40 text-sm">
-                        Desenvolvido com ❤️ por <a href="https://matheuz-rodrigues.github.io/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors">Matheuz Rodrigues</a>
+                        Desenvolvido com ❤️ por <a href="https://matheuz-rodrigues.github.io/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-primary-500/30 hover:decoration-primary-500 hover:text-primary-400 transition-all">Matheuz Rodrigues</a>
                     </p>
                 </div>
             </div>

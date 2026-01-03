@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { getAlbumImages, getAlbums } from "@/lib/albums";
+import AlbumGrid from "@/components/AlbumGrid";
 
 export function generateStaticParams() {
     const albums = getAlbums();
@@ -51,34 +52,7 @@ export default async function AlbumPage({ params }: PageProps) {
                     </div>
 
                     {/* Grid de Fotos */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in delay-200">
-                        {images.length > 0 ? (
-                            images.map((image, index) => (
-                                <div
-                                    key={image}
-                                    className="relative group aspect-4/5 bg-gray-900 rounded-lg overflow-hidden cursor-zoom-in"
-                                >
-                                    <Image
-                                        src={image}
-                                        alt={`${title} - Foto ${index + 1}`}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    />
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                                </div>
-                            ))
-                        ) : (
-                            <div className="col-span-full py-20 text-center">
-                                <p className="text-xl text-foreground/60">
-                                    Nenhuma foto encontrada neste álbum.
-                                </p>
-                                <p className="text-sm text-foreground/40 mt-2">
-                                    Adicione fotos em public/albums/{slug}
-                                </p>
-                            </div>
-                        )}
-                    </div>
+                    <AlbumGrid images={images} title={title} />
                 </div>
             </main>
 
